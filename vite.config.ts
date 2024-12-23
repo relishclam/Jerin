@@ -1,23 +1,16 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  root: '.',
-  base: '/',
+  base: '',
   build: {
     outDir: 'dist',
-    sourcemap: false,
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html')
+        app: './index.html'
       }
     }
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
-    }
   }
-});
+})
